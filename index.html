@@ -1,196 +1,496 @@
-import React, { useState, useEffect } from ‘react’;
-import { Skull, Zap, TrendingUp, Users } from ‘lucide-react’;
+<!DOCTYPE html>
 
-export default function DeadVisionnCoin() {
-const [scrolled, setScrolled] = useState(false);
-const [count, setCount] = useState(0);
-
-useEffect(() => {
-const handleScroll = () => setScrolled(window.scrollY > 50);
-window.addEventListener(‘scroll’, handleScroll);
-return () => window.removeEventListener(‘scroll’, handleScroll);
-}, []);
-
-useEffect(() => {
-const interval = setInterval(() => {
-setCount(prev => (prev + 1) % 100);
-}, 50);
-return () => clearInterval(interval);
-}, []);
-
-return (
-<div className="min-h-screen bg-black text-white overflow-hidden">
-{/* Animated background */}
-<div className="fixed inset-0 opacity-20">
-<div className=“absolute inset-0 bg-gradient-to-br from-red-900 via-black to-red-950 animate-pulse” style={{ animationDuration: ‘4s’ }} />
-<div className=“absolute inset-0” style={{
-backgroundImage: ‘radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.3) 0%, transparent 50%)’,
-animation: ‘float 8s ease-in-out infinite’
-}} />
-</div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAT COIN - Skin in the Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
 ```
-  {/* Hero Section */}
-  <div className="relative min-h-screen flex flex-col items-center justify-center px-6">
-    <div className="text-center space-y-8 animate-fadeIn">
-      {/* Main skull icon */}
-      <div className="relative inline-block">
-        <Skull className="w-32 h-32 mx-auto text-red-600 animate-pulse" style={{ 
-          filter: 'drop-shadow(0 0 20px rgba(220, 38, 38, 0.8))',
-          animationDuration: '2s' 
-        }} />
-        <div className="absolute inset-0 blur-xl bg-red-600 opacity-30 animate-ping" style={{ animationDuration: '3s' }} />
-      </div>
-
-      {/* Title */}
-      <div className="space-y-4">
-        <h1 className="text-7xl md:text-9xl font-black tracking-tighter" style={{
-          fontFamily: 'Impact, sans-serif',
-          textShadow: '0 0 30px rgba(220, 38, 38, 0.8), 0 0 60px rgba(220, 38, 38, 0.4)',
-          letterSpacing: '-0.05em'
-        }}>
-          DEAD VISIONN
-        </h1>
-        <div className="h-1 w-64 mx-auto bg-gradient-to-r from-transparent via-red-600 to-transparent" />
-        <p className="text-3xl md:text-4xl font-bold text-red-500 tracking-wide">
-          SKIN IN THE GAME
-        </p>
-      </div>
-
-      {/* Tagline */}
-      <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-wide">
-        My leg. Your meme. Forever.
-      </p>
-
-      {/* Glitch effect text */}
-      <div className="relative inline-block">
-        <p className="text-lg text-red-500 font-mono animate-pulse">
-          {'>> '}LAUNCHING SOON{' <<'}
-        </p>
-      </div>
-    </div>
-
-    {/* Scroll indicator */}
-    <div className="absolute bottom-10 animate-bounce">
-      <div className="w-6 h-10 border-2 border-red-600 rounded-full flex items-start justify-center p-2">
-        <div className="w-1 h-3 bg-red-600 rounded-full animate-pulse" />
-      </div>
-    </div>
-  </div>
-
-  {/* Milestones Section */}
-  <div className="relative py-32 px-6">
-    <div className="max-w-6xl mx-auto">
-      <h2 className="text-5xl md:text-7xl font-black text-center mb-20" style={{
-        fontFamily: 'Impact, sans-serif',
-        textShadow: '0 0 20px rgba(220, 38, 38, 0.6)'
-      }}>
-        THE ROADMAP
-      </h2>
-
-      <div className="grid md:grid-cols-3 gap-12">
-        {/* Milestone 1 */}
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900 to-black opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="relative bg-black border-2 border-red-900 p-8 hover:border-red-600 transition-all duration-300 transform hover:scale-105">
-            <Zap className="w-16 h-16 text-red-600 mb-6 mx-auto" />
-            <h3 className="text-3xl font-black text-red-500 mb-4 text-center">1 SOL</h3>
-            <p className="text-gray-300 text-center text-lg">
-              First 5 apes get their X handle tattooed on my leg
-            </p>
-            <div className="mt-4 text-red-600 text-sm font-bold text-center">
-              5 SPOTS ONLY
-            </div>
-          </div>
-        </div>
-
-        {/* Milestone 2 */}
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900 to-black opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="relative bg-black border-2 border-red-900 p-8 hover:border-red-600 transition-all duration-300 transform hover:scale-105">
-            <Skull className="w-16 h-16 text-red-600 mb-6 mx-auto" />
-            <h3 className="text-3xl font-black text-red-500 mb-4 text-center">20K MC</h3>
-            <p className="text-gray-300 text-center text-lg">
-              The skull logo gets inked. Permanent proof.
-            </p>
-          </div>
-        </div>
-
-        {/* Milestone 3 */}
-        <div className="relative group">
-          <div className="absolute inset-0 bg-gradient-to-br from-red-900 to-black opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500" />
-          <div className="relative bg-black border-2 border-red-900 p-8 hover:border-red-600 transition-all duration-300 transform hover:scale-105">
-            <Users className="w-16 h-16 text-red-600 mb-6 mx-auto" />
-            <h3 className="text-3xl font-black text-red-500 mb-4 text-center">50K MC</h3>
-            <p className="text-gray-300 text-center text-lg">
-              Community votes. You decide what goes on my skin forever.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Statement Section */}
-  <div className="relative py-32 px-6 bg-gradient-to-b from-black via-red-950/20 to-black">
-    <div className="max-w-4xl mx-auto text-center space-y-8">
-      <div className="inline-block px-6 py-2 border border-red-600 text-red-500 font-mono text-sm mb-6">
-        NO PRESALE • NO TEAM TOKENS • ZERO SUPPLY BOUGHT
-      </div>
-      
-      <h2 className="text-4xl md:text-6xl font-black" style={{
-        fontFamily: 'Impact, sans-serif',
-        textShadow: '0 0 20px rgba(220, 38, 38, 0.6)'
-      }}>
-        I'M A TATTOO ARTIST,<br />NOT A RUG PULLER
-      </h2>
-      
-      <p className="text-xl text-gray-400 leading-relaxed">
-        My income comes from ink, not dumping on you. This is an experiment at the 
-        intersection of body art and internet culture. My leg becomes a living canvas 
-        of meme history. No promises except permanent tattoos.
-      </p>
-
-      <div className="flex items-center justify-center gap-4 pt-8">
-        <div className="h-px w-32 bg-gradient-to-r from-transparent to-red-600" />
-        <a 
-          href="https://instagram.com/dead.visionn" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-red-500 hover:text-red-400 transition-colors font-mono text-lg"
-        >
-          @dead.visionn
-        </a>
-        <div className="h-px w-32 bg-gradient-to-l from-transparent to-red-600" />
-      </div>
-    </div>
-  </div>
-
-  {/* Footer */}
-  <div className="relative py-16 px-6 text-center border-t border-red-900/30">
-    <p className="text-gray-600 font-mono text-sm">
-      DEGEN RESPONSIBLY • THIS IS NOT FINANCIAL ADVICE • MEME COINS ARE RISKY AF
-    </p>
-    <p className="text-gray-700 font-mono text-xs mt-4">
-      Contract Address: TBA • Launching on pump.fun
-    </p>
-  </div>
-
-  <style jsx>{`
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: #000;
+        color: #fff;
+        overflow-x: hidden;
     }
+
+    .background {
+        position: fixed;
+        inset: 0;
+        opacity: 0.2;
+        z-index: 0;
+    }
+
+    .bg-gradient {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom right, #7f1d1d, #000, #450a0a);
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    .bg-circles {
+        position: absolute;
+        inset: 0;
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.3) 0%, transparent 50%);
+        animation: float 8s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.8; }
+    }
+
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
     }
-    .animate-fadeIn {
-      animation: fadeIn 1s ease-out;
+
+    @keyframes fadeIn {
+        from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+        }
+        to { 
+            opacity: 1; 
+            transform: translateY(0); 
+        }
     }
-  `}</style>
+
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    @keyframes ping {
+        0% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(1.5); opacity: 0.1; }
+        100% { transform: scale(2); opacity: 0; }
+    }
+
+    .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        z-index: 1;
+    }
+
+    .hero-content {
+        text-align: center;
+        animation: fadeIn 1s ease-out;
+    }
+
+    .skull-container {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 3rem;
+    }
+
+    .skull-icon {
+        width: 128px;
+        height: 128px;
+        margin: 0 auto;
+        filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.8));
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .skull-glow {
+        position: absolute;
+        inset: 0;
+        filter: blur(40px);
+        background: #dc2626;
+        opacity: 0.3;
+        animation: ping 3s ease-in-out infinite;
+    }
+
+    .title {
+        font-size: 6rem;
+        font-weight: 900;
+        font-family: Impact, sans-serif;
+        letter-spacing: -0.05em;
+        text-shadow: 0 0 30px rgba(220, 38, 38, 0.8), 0 0 60px rgba(220, 38, 38, 0.4);
+        margin-bottom: 1rem;
+        line-height: 1;
+    }
+
+    .divider {
+        height: 4px;
+        width: 256px;
+        margin: 0 auto 2rem;
+        background: linear-gradient(to right, transparent, #dc2626, transparent);
+    }
+
+    .subtitle {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #ef4444;
+        letter-spacing: 0.1em;
+        margin-bottom: 2rem;
+    }
+
+    .tagline {
+        font-size: 1.5rem;
+        color: #9ca3af;
+        font-weight: 300;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+    }
+
+    .launch-text {
+        font-family: monospace;
+        font-size: 1.125rem;
+        color: #ef4444;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .scroll-indicator {
+        position: absolute;
+        bottom: 2.5rem;
+        animation: bounce 2s ease-in-out infinite;
+    }
+
+    .scroll-pill {
+        width: 24px;
+        height: 40px;
+        border: 2px solid #dc2626;
+        border-radius: 12px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 8px 0;
+    }
+
+    .scroll-dot {
+        width: 4px;
+        height: 12px;
+        background: #dc2626;
+        border-radius: 2px;
+        animation: pulse 2s ease-in-out infinite;
+    }
+
+    .milestones {
+        position: relative;
+        padding: 8rem 2rem;
+        z-index: 1;
+    }
+
+    .milestones-container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        font-size: 4rem;
+        font-weight: 900;
+        font-family: Impact, sans-serif;
+        text-align: center;
+        margin-bottom: 5rem;
+        text-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+    }
+
+    .milestone-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+    }
+
+    .milestone-card {
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+
+    .milestone-card:hover {
+        transform: scale(1.05);
+    }
+
+    .milestone-glow {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom right, #7f1d1d, #000);
+        opacity: 0.5;
+        filter: blur(40px);
+        transition: opacity 0.5s;
+    }
+
+    .milestone-card:hover .milestone-glow {
+        opacity: 1;
+    }
+
+    .milestone-content {
+        position: relative;
+        background: #000;
+        border: 2px solid #7f1d1d;
+        padding: 2rem;
+        transition: border-color 0.3s;
+    }
+
+    .milestone-card:hover .milestone-content {
+        border-color: #dc2626;
+    }
+
+    .milestone-icon {
+        width: 64px;
+        height: 64px;
+        color: #dc2626;
+        margin: 0 auto 1.5rem;
+        display: block;
+    }
+
+    .milestone-title {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #ef4444;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .milestone-text {
+        color: #d1d5db;
+        text-align: center;
+        font-size: 1.125rem;
+        line-height: 1.6;
+    }
+
+    .milestone-badge {
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: bold;
+        color: #dc2626;
+    }
+
+    .statement {
+        position: relative;
+        padding: 8rem 2rem;
+        background: linear-gradient(to bottom, #000, rgba(127, 29, 29, 0.2), #000);
+        z-index: 1;
+    }
+
+    .statement-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .statement-badge {
+        display: inline-block;
+        padding: 0.5rem 1.5rem;
+        border: 1px solid #dc2626;
+        color: #ef4444;
+        font-family: monospace;
+        font-size: 0.875rem;
+        margin-bottom: 2rem;
+    }
+
+    .statement-title {
+        font-size: 3.5rem;
+        font-weight: 900;
+        font-family: Impact, sans-serif;
+        text-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+        margin-bottom: 2rem;
+        line-height: 1.2;
+    }
+
+    .statement-text {
+        font-size: 1.25rem;
+        color: #9ca3af;
+        line-height: 1.8;
+        margin-bottom: 3rem;
+    }
+
+    .instagram-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        padding-top: 2rem;
+    }
+
+    .link-line {
+        height: 1px;
+        width: 128px;
+        background: linear-gradient(to right, transparent, #dc2626);
+    }
+
+    .link-line.reverse {
+        background: linear-gradient(to left, transparent, #dc2626);
+    }
+
+    .instagram-handle {
+        color: #ef4444;
+        font-family: monospace;
+        font-size: 1.125rem;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .instagram-handle:hover {
+        color: #f87171;
+    }
+
+    .footer {
+        position: relative;
+        padding: 4rem 2rem;
+        text-align: center;
+        border-top: 1px solid rgba(127, 29, 29, 0.3);
+        z-index: 1;
+    }
+
+    .footer-text {
+        color: #4b5563;
+        font-family: monospace;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .footer-contract {
+        color: #374151;
+        font-family: monospace;
+        font-size: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+        .title {
+            font-size: 3.5rem;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+        }
+        .statement-title {
+            font-size: 2rem;
+        }
+        .milestone-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="background">
+        <div class="bg-gradient"></div>
+        <div class="bg-circles"></div>
+    </div>
+
+```
+<div class="hero">
+    <div class="hero-content">
+        <div class="skull-container">
+            <div class="skull-glow"></div>
+            <svg class="skull-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="M12.5 17H11v-2h2v-3h1a4 4 0 0 0 0-8H10a4 4 0 0 0 0 8h1v3"/><path d="M8 12a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/><path d="M16 12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/>
+            </svg>
+        </div>
+
+        <div>
+            <h1 class="title">DEAD VISIONN</h1>
+            <div class="divider"></div>
+            <p class="subtitle">SKIN IN THE GAME</p>
+        </div>
+
+        <p class="tagline">My leg. Your meme. Forever.</p>
+
+        <div>
+            <p class="launch-text">&gt;&gt; LAUNCHING SOON &lt;&lt;</p>
+        </div>
+    </div>
+
+    <div class="scroll-indicator">
+        <div class="scroll-pill">
+            <div class="scroll-dot"></div>
+        </div>
+    </div>
+</div>
+
+<div class="milestones">
+    <div class="milestones-container">
+        <h2 class="section-title">THE ROADMAP</h2>
+
+        <div class="milestone-grid">
+            <div class="milestone-card">
+                <div class="milestone-glow"></div>
+                <div class="milestone-content">
+                    <svg class="milestone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                    </svg>
+                    <h3 class="milestone-title">1 SOL</h3>
+                    <p class="milestone-text">First 5 apes get their X handle tattooed on my leg</p>
+                    <div class="milestone-badge">5 SPOTS ONLY</div>
+                </div>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-glow"></div>
+                <div class="milestone-content">
+                    <svg class="milestone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="M12.5 17H11v-2h2v-3h1a4 4 0 0 0 0-8H10a4 4 0 0 0 0 8h1v3"/><path d="M8 12a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/><path d="M16 12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/>
+                    </svg>
+                    <h3 class="milestone-title">20K MC</h3>
+                    <p class="milestone-text">The skull logo gets inked. Permanent proof.</p>
+                </div>
+            </div>
+
+            <div class="milestone-card">
+                <div class="milestone-glow"></div>
+                <div class="milestone-content">
+                    <svg class="milestone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <h3 class="milestone-title">50K MC</h3>
+                    <p class="milestone-text">Community votes. You decide what goes on my skin forever.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="statement">
+    <div class="statement-container">
+        <div class="statement-badge">NO PRESALE • NO TEAM TOKENS • ZERO SUPPLY BOUGHT</div>
+        
+        <h2 class="statement-title">I'M A TATTOO ARTIST,<br>NOT A RUG PULLER</h2>
+        
+        <p class="statement-text">
+            My income comes from ink, not dumping on you. This is an experiment at the 
+            intersection of body art and internet culture. My leg becomes a living canvas 
+            of meme history. No promises except permanent tattoos.
+        </p>
+
+        <div class="instagram-link">
+            <div class="link-line"></div>
+            <a href="https://instagram.com/dead.visionn" target="_blank" rel="noopener noreferrer" class="instagram-handle">
+                
+            
+            </a>
+            <div class="link-line reverse"></div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p class="footer-text">
+        DEGEN RESPONSIBLY • THIS IS NOT FINANCIAL ADVICE • MEME COINS ARE RISKY AF
+    </p>
+    <p class="footer-contract">
+        Contract Address: TBA • Launching on pump.fun
+    </p>
 </div>
 ```
 
-);
-}
+</body>
+</html>
