@@ -1,0 +1,196 @@
+import React, { useState, useEffect } from ‘react’;
+import { Skull, Zap, TrendingUp, Users } from ‘lucide-react’;
+
+export default function DeadVisionnCoin() {
+const [scrolled, setScrolled] = useState(false);
+const [count, setCount] = useState(0);
+
+useEffect(() => {
+const handleScroll = () => setScrolled(window.scrollY > 50);
+window.addEventListener(‘scroll’, handleScroll);
+return () => window.removeEventListener(‘scroll’, handleScroll);
+}, []);
+
+useEffect(() => {
+const interval = setInterval(() => {
+setCount(prev => (prev + 1) % 100);
+}, 50);
+return () => clearInterval(interval);
+}, []);
+
+return (
+<div className="min-h-screen bg-black text-white overflow-hidden">
+{/* Animated background */}
+<div className="fixed inset-0 opacity-20">
+<div className=“absolute inset-0 bg-gradient-to-br from-red-900 via-black to-red-950 animate-pulse” style={{ animationDuration: ‘4s’ }} />
+<div className=“absolute inset-0” style={{
+backgroundImage: ‘radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.3) 0%, transparent 50%)’,
+animation: ‘float 8s ease-in-out infinite’
+}} />
+</div>
+
+```
+  {/* Hero Section */}
+  <div className="relative min-h-screen flex flex-col items-center justify-center px-6">
+    <div className="text-center space-y-8 animate-fadeIn">
+      {/* Main skull icon */}
+      <div className="relative inline-block">
+        <Skull className="w-32 h-32 mx-auto text-red-600 animate-pulse" style={{ 
+          filter: 'drop-shadow(0 0 20px rgba(220, 38, 38, 0.8))',
+          animationDuration: '2s' 
+        }} />
+        <div className="absolute inset-0 blur-xl bg-red-600 opacity-30 animate-ping" style={{ animationDuration: '3s' }} />
+      </div>
+
+      {/* Title */}
+      <div className="space-y-4">
+        <h1 className="text-7xl md:text-9xl font-black tracking-tighter" style={{
+          fontFamily: 'Impact, sans-serif',
+          textShadow: '0 0 30px rgba(220, 38, 38, 0.8), 0 0 60px rgba(220, 38, 38, 0.4)',
+          letterSpacing: '-0.05em'
+        }}>
+          DEAD VISIONN
+        </h1>
+        <div className="h-1 w-64 mx-auto bg-gradient-to-r from-transparent via-red-600 to-transparent" />
+        <p className="text-3xl md:text-4xl font-bold text-red-500 tracking-wide">
+          SKIN IN THE GAME
+        </p>
+      </div>
+
+      {/* Tagline */}
+      <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto font-light tracking-wide">
+        My leg. Your meme. Forever.
+      </p>
+
+      {/* Glitch effect text */}
+      <div className="relative inline-block">
+        <p className="text-lg text-red-500 font-mono animate-pulse">
+          {'>> '}LAUNCHING SOON{' <<'}
+        </p>
+      </div>
+    </div>
+
+    {/* Scroll indicator */}
+    <div className="absolute bottom-10 animate-bounce">
+      <div className="w-6 h-10 border-2 border-red-600 rounded-full flex items-start justify-center p-2">
+        <div className="w-1 h-3 bg-red-600 rounded-full animate-pulse" />
+      </div>
+    </div>
+  </div>
+
+  {/* Milestones Section */}
+  <div className="relative py-32 px-6">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-5xl md:text-7xl font-black text-center mb-20" style={{
+        fontFamily: 'Impact, sans-serif',
+        textShadow: '0 0 20px rgba(220, 38, 38, 0.6)'
+      }}>
+        THE ROADMAP
+      </h2>
+
+      <div className="grid md:grid-cols-3 gap-12">
+        {/* Milestone 1 */}
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-900 to-black opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative bg-black border-2 border-red-900 p-8 hover:border-red-600 transition-all duration-300 transform hover:scale-105">
+            <Zap className="w-16 h-16 text-red-600 mb-6 mx-auto" />
+            <h3 className="text-3xl font-black text-red-500 mb-4 text-center">1 SOL</h3>
+            <p className="text-gray-300 text-center text-lg">
+              First 5 apes get their X handle tattooed on my leg
+            </p>
+            <div className="mt-4 text-red-600 text-sm font-bold text-center">
+              5 SPOTS ONLY
+            </div>
+          </div>
+        </div>
+
+        {/* Milestone 2 */}
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-900 to-black opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative bg-black border-2 border-red-900 p-8 hover:border-red-600 transition-all duration-300 transform hover:scale-105">
+            <Skull className="w-16 h-16 text-red-600 mb-6 mx-auto" />
+            <h3 className="text-3xl font-black text-red-500 mb-4 text-center">20K MC</h3>
+            <p className="text-gray-300 text-center text-lg">
+              The skull logo gets inked. Permanent proof.
+            </p>
+          </div>
+        </div>
+
+        {/* Milestone 3 */}
+        <div className="relative group">
+          <div className="absolute inset-0 bg-gradient-to-br from-red-900 to-black opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="relative bg-black border-2 border-red-900 p-8 hover:border-red-600 transition-all duration-300 transform hover:scale-105">
+            <Users className="w-16 h-16 text-red-600 mb-6 mx-auto" />
+            <h3 className="text-3xl font-black text-red-500 mb-4 text-center">50K MC</h3>
+            <p className="text-gray-300 text-center text-lg">
+              Community votes. You decide what goes on my skin forever.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Statement Section */}
+  <div className="relative py-32 px-6 bg-gradient-to-b from-black via-red-950/20 to-black">
+    <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="inline-block px-6 py-2 border border-red-600 text-red-500 font-mono text-sm mb-6">
+        NO PRESALE • NO TEAM TOKENS • ZERO SUPPLY BOUGHT
+      </div>
+      
+      <h2 className="text-4xl md:text-6xl font-black" style={{
+        fontFamily: 'Impact, sans-serif',
+        textShadow: '0 0 20px rgba(220, 38, 38, 0.6)'
+      }}>
+        I'M A TATTOO ARTIST,<br />NOT A RUG PULLER
+      </h2>
+      
+      <p className="text-xl text-gray-400 leading-relaxed">
+        My income comes from ink, not dumping on you. This is an experiment at the 
+        intersection of body art and internet culture. My leg becomes a living canvas 
+        of meme history. No promises except permanent tattoos.
+      </p>
+
+      <div className="flex items-center justify-center gap-4 pt-8">
+        <div className="h-px w-32 bg-gradient-to-r from-transparent to-red-600" />
+        <a 
+          href="https://instagram.com/dead.visionn" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-red-500 hover:text-red-400 transition-colors font-mono text-lg"
+        >
+          @dead.visionn
+        </a>
+        <div className="h-px w-32 bg-gradient-to-l from-transparent to-red-600" />
+      </div>
+    </div>
+  </div>
+
+  {/* Footer */}
+  <div className="relative py-16 px-6 text-center border-t border-red-900/30">
+    <p className="text-gray-600 font-mono text-sm">
+      DEGEN RESPONSIBLY • THIS IS NOT FINANCIAL ADVICE • MEME COINS ARE RISKY AF
+    </p>
+    <p className="text-gray-700 font-mono text-xs mt-4">
+      Contract Address: TBA • Launching on pump.fun
+    </p>
+  </div>
+
+  <style jsx>{`
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 1s ease-out;
+    }
+  `}</style>
+</div>
+```
+
+);
+}
