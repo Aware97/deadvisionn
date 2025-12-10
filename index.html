@@ -4,492 +4,389 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TAT COIN - Skin in the Game</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    <title>$FIRSTDOG - The First Instagram Dog Meme Coin</title>
+    <meta name="description" content="The first dog photo ever posted on Instagram, now tokenized on Solana. Join the legend.">
 
 ```
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        background: #000;
-        color: #fff;
-        overflow-x: hidden;
-    }
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-    .background {
-        position: fixed;
-        inset: 0;
-        opacity: 0.2;
-        z-index: 0;
-    }
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
 
-    .bg-gradient {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom right, #7f1d1d, #000, #450a0a);
-        animation: pulse 4s ease-in-out infinite;
-    }
-
-    .bg-circles {
-        position: absolute;
-        inset: 0;
-        background: 
-            radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.3) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.3) 0%, transparent 50%);
-        animation: float 8s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.8; }
-    }
-
+<style>
     @keyframes float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-20px); }
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        33% { transform: translate(30px, -50px) scale(1.1); }
+        66% { transform: translate(-20px, 20px) scale(0.9); }
+    }
+    
+    @keyframes rainbow {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+    }
+    
+    @keyframes glow {
+        0%, 100% { box-shadow: 0 0 20px rgba(168, 85, 247, 0.5), 0 0 40px rgba(236, 72, 153, 0.3); }
+        50% { box-shadow: 0 0 40px rgba(168, 85, 247, 0.8), 0 0 80px rgba(236, 72, 153, 0.5); }
     }
 
-    @keyframes fadeIn {
-        from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-        }
-        to { 
-            opacity: 1; 
-            transform: translateY(0); 
-        }
+    .rainbow-text {
+        animation: rainbow 5s linear infinite;
     }
 
-    @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
+    .glow-effect {
+        animation: glow 3s ease-in-out infinite;
     }
 
-    @keyframes ping {
-        0% { transform: scale(1); opacity: 0.3; }
-        50% { transform: scale(1.5); opacity: 0.1; }
-        100% { transform: scale(2); opacity: 0; }
+    .float-1 {
+        animation: float 20s ease-in-out infinite;
     }
 
-    .hero {
-        position: relative;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        z-index: 1;
+    .float-2 {
+        animation: float 25s ease-in-out infinite;
+        animation-delay: 5s;
     }
 
-    .hero-content {
-        text-align: center;
-        animation: fadeIn 1s ease-out;
+    .float-3 {
+        animation: float 30s ease-in-out infinite;
+        animation-delay: 10s;
     }
 
-    .skull-container {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 3rem;
+    .grid-bg {
+        background-image: linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+                         linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
     }
 
-    .skull-icon {
-        width: 128px;
-        height: 128px;
-        margin: 0 auto;
-        filter: drop-shadow(0 0 20px rgba(220, 38, 38, 0.8));
-        animation: pulse 2s ease-in-out infinite;
-    }
-
-    .skull-glow {
-        position: absolute;
-        inset: 0;
-        filter: blur(40px);
-        background: #dc2626;
-        opacity: 0.3;
-        animation: ping 3s ease-in-out infinite;
-    }
-
-    .title {
-        font-size: 6rem;
-        font-weight: 900;
-        font-family: Impact, sans-serif;
-        letter-spacing: -0.05em;
-        text-shadow: 0 0 30px rgba(220, 38, 38, 0.8), 0 0 60px rgba(220, 38, 38, 0.4);
-        margin-bottom: 1rem;
-        line-height: 1;
-    }
-
-    .divider {
-        height: 4px;
-        width: 256px;
-        margin: 0 auto 2rem;
-        background: linear-gradient(to right, transparent, #dc2626, transparent);
-    }
-
-    .subtitle {
-        font-size: 2.5rem;
-        font-weight: bold;
-        color: #ef4444;
-        letter-spacing: 0.1em;
-        margin-bottom: 2rem;
-    }
-
-    .tagline {
-        font-size: 1.5rem;
-        color: #9ca3af;
-        font-weight: 300;
-        max-width: 800px;
-        margin: 0 auto 2rem;
-    }
-
-    .launch-text {
-        font-family: monospace;
-        font-size: 1.125rem;
-        color: #ef4444;
-        animation: pulse 2s ease-in-out infinite;
-    }
-
-    .scroll-indicator {
-        position: absolute;
-        bottom: 2.5rem;
-        animation: bounce 2s ease-in-out infinite;
-    }
-
-    .scroll-pill {
-        width: 24px;
-        height: 40px;
-        border: 2px solid #dc2626;
-        border-radius: 12px;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 8px 0;
-    }
-
-    .scroll-dot {
-        width: 4px;
-        height: 12px;
-        background: #dc2626;
-        border-radius: 2px;
-        animation: pulse 2s ease-in-out infinite;
-    }
-
-    .milestones {
-        position: relative;
-        padding: 8rem 2rem;
-        z-index: 1;
-    }
-
-    .milestones-container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .section-title {
-        font-size: 4rem;
-        font-weight: 900;
-        font-family: Impact, sans-serif;
-        text-align: center;
-        margin-bottom: 5rem;
-        text-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
-    }
-
-    .milestone-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 3rem;
-    }
-
-    .milestone-card {
-        position: relative;
-        transition: transform 0.3s ease;
-    }
-
-    .milestone-card:hover {
-        transform: scale(1.05);
-    }
-
-    .milestone-glow {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to bottom right, #7f1d1d, #000);
-        opacity: 0.5;
-        filter: blur(40px);
-        transition: opacity 0.5s;
-    }
-
-    .milestone-card:hover .milestone-glow {
-        opacity: 1;
-    }
-
-    .milestone-content {
-        position: relative;
-        background: #000;
-        border: 2px solid #7f1d1d;
-        padding: 2rem;
-        transition: border-color 0.3s;
-    }
-
-    .milestone-card:hover .milestone-content {
-        border-color: #dc2626;
-    }
-
-    .milestone-icon {
-        width: 64px;
-        height: 64px;
-        color: #dc2626;
-        margin: 0 auto 1.5rem;
-        display: block;
-    }
-
-    .milestone-title {
-        font-size: 2rem;
-        font-weight: 900;
-        color: #ef4444;
-        text-align: center;
-        margin-bottom: 1rem;
-    }
-
-    .milestone-text {
-        color: #d1d5db;
-        text-align: center;
-        font-size: 1.125rem;
-        line-height: 1.6;
-    }
-
-    .milestone-badge {
-        margin-top: 1rem;
-        text-align: center;
-        font-size: 0.875rem;
-        font-weight: bold;
-        color: #dc2626;
-    }
-
-    .statement {
-        position: relative;
-        padding: 8rem 2rem;
-        background: linear-linear(to bottom, #000, rgba(127, 29, 29, 0.2), #000);
-        z-index: 1;
-    }
-
-    .statement-container {
-        max-width: 1000px;
-        margin: 0 auto;
-        text-align: center;
-    }
-
-    .statement-badge {
-        display: inline-block;
-        padding: 0.5rem 1.5rem;
-        border: 1px solid #dc2626;
-        color: #ef4444;
-        font-family: monospace;
-        font-size: 0.875rem;
-        margin-bottom: 2rem;
-    }
-
-    .statement-title {
-        font-size: 3.5rem;
-        font-weight: 900;
-        font-family: Impact, sans-serif;
-        text-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
-        margin-bottom: 2rem;
-        line-height: 1.2;
-    }
-
-    .statement-text {
-        font-size: 1.25rem;
-        color: #9ca3af;
-        line-height: 1.8;
-        margin-bottom: 3rem;
-    }
-
-    .instagram-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        padding-top: 2rem;
-    }
-
-    .link-line {
-        height: 1px;
-        width: 128px;
-        background: linear-gradient(to right, transparent, #dc2626);
-    }
-
-    .link-line.reverse {
-        background: linear-gradient(to left, transparent, #dc2626);
-    }
-
-    .instagram-handle {
-        color: #ef4444;
-        font-family: monospace;
-        font-size: 1.125rem;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .instagram-handle:hover {
-        color: #f87171;
-    }
-
-    .footer {
-        position: relative;
-        padding: 4rem 2rem;
-        text-align: center;
-        border-top: 1px solid rgba(127, 29, 29, 0.3);
-        z-index: 1;
-    }
-
-    .footer-text {
-        color: #4b5563;
-        font-family: monospace;
-        font-size: 0.875rem;
-        margin-bottom: 1rem;
-    }
-
-    .footer-contract {
-        color: #374151;
-        font-family: monospace;
-        font-size: 0.75rem;
-    }
-
-    @media (max-width: 768px) {
-        .title {
-            font-size: 3.5rem;
-        }
-        .subtitle {
-            font-size: 1.5rem;
-        }
-        .section-title {
-            font-size: 2.5rem;
-        }
-        .statement-title {
-            font-size: 2rem;
-        }
-        .milestone-grid {
-            grid-template-columns: 1fr;
-        }
+    html {
+        scroll-behavior: smooth;
     }
 </style>
 ```
 
 </head>
-<body>
-    <div class="background">
-        <div class="bg-gradient"></div>
-        <div class="bg-circles"></div>
-    </div>
+<body class="bg-black text-white overflow-x-hidden">
+    <!-- Mouse follower gradient -->
+    <div id="mouseGradient" class="fixed w-96 h-96 rounded-full pointer-events-none z-0 transition-all duration-300 ease-out" 
+         style="background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, rgba(236,72,153,0.1) 50%, transparent 70%);"></div>
 
 ```
-<div class="hero">
-    <div class="hero-content">
-        <div class="skull-container">
-            <div class="skull-glow"></div>
-            <svg class="skull-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="M12.5 17H11v-2h2v-3h1a4 4 0 0 0 0-8H10a4 4 0 0 0 0 8h1v3"/><path d="M8 12a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/><path d="M16 12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/>
-            </svg>
-        </div>
+<!-- Animated grid background -->
+<div class="fixed inset-0 z-0 grid-bg"></div>
 
-        <div>
-            <h1 class="title">TAT COIN</h1>
-            <div class="divider"></div>
-            <p class="subtitle">SKIN IN THE GAME</p>
-        </div>
-
-        <p class="tagline">My leg. Your meme. Forever.</p>
-
-        <div>
-            <p class="launch-text">&gt;&gt; LAUNCHING SOON &lt;&lt;</p>
-        </div>
-    </div>
-
-    <div class="scroll-indicator">
-        <div class="scroll-pill">
-            <div class="scroll-dot"></div>
-        </div>
-    </div>
+<!-- Floating orbs -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="absolute w-72 h-72 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 float-1" style="top: 20%; left: 10%;"></div>
+    <div class="absolute w-72 h-72 bg-pink-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 float-2" style="top: 60%; right: 20%;"></div>
+    <div class="absolute w-72 h-72 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-20 float-3" style="bottom: 20%; left: 40%;"></div>
 </div>
 
-<div class="milestones">
-    <div class="milestones-container">
-        <h2 class="section-title">THE ROADMAP</h2>
-
-        <div class="milestone-grid">
-            <div class="milestone-card">
-                <div class="milestone-glow"></div>
-                <div class="milestone-content">
-                    <svg class="milestone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                    </svg>
-                    <h3 class="milestone-title">1 SOL</h3>
-                    <p class="milestone-text">First 5 apes get their X handle tattooed on my leg</p>
-                    <div class="milestone-badge">5 SPOTS ONLY</div>
-                </div>
-            </div>
-
-            <div class="milestone-card">
-                <div class="milestone-glow"></div>
-                <div class="milestone-content">
-                    <svg class="milestone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/><path d="M8 20v2h8v-2"/><path d="M12.5 17H11v-2h2v-3h1a4 4 0 0 0 0-8H10a4 4 0 0 0 0 8h1v3"/><path d="M8 12a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1"/><path d="M16 12a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1"/>
-                    </svg>
-                    <h3 class="milestone-title">25K MC</h3>
-                    <p class="milestone-text">The skull logo gets inked. Permanent proof.</p>
-                </div>
-            </div>
-
-            <div class="milestone-card">
-                <div class="milestone-glow"></div>
-                <div class="milestone-content">
-                    <svg class="milestone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                    </svg>
-                    <h3 class="milestone-title">50K MC</h3>
-                    <p class="milestone-text">Community votes. You decide what goes on my skin forever.</p>
-                </div>
-            </div>
+<!-- Header -->
+<nav class="relative z-50 container mx-auto px-6 py-6 flex justify-between items-center backdrop-blur-sm">
+    <div class="flex items-center gap-3">
+        <div class="relative">
+            <i data-lucide="instagram" class="w-8 h-8 text-purple-400"></i>
+            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full blur opacity-50"></div>
         </div>
+        <span class="text-2xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+            $FIRSTDOG
+        </span>
     </div>
-</div>
+    <div class="hidden md:flex gap-6 items-center">
+        <a href="#about" class="hover:text-purple-400 transition-all duration-300 font-medium">Story</a>
+        <a href="#tokenomics" class="hover:text-pink-400 transition-all duration-300 font-medium">Token</a>
+        <a href="#roadmap" class="hover:text-green-400 transition-all duration-300 font-medium">Roadmap</a>
+        <button class="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-bold text-sm hover:scale-105 transition-transform duration-300">
+            Buy Now
+        </button>
+    </div>
+</nav>
 
-<div class="statement">
-    <div class="statement-container">
-        <div class="statement-badge">NO PRESALE • NO TEAM TOKENS • ZERO SUPPLY BOUGHT</div>
+<!-- Hero Section -->
+<section class="relative z-10 container mx-auto px-6 pt-12 pb-20">
+    <div class="text-center mb-16">
+        <!-- Date Badge -->
+        <div class="inline-flex items-center gap-2 mb-8 px-6 py-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full border border-purple-500/30 backdrop-blur-sm">
+            <div class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+            <span class="text-purple-300 text-sm font-bold tracking-wider">JULY 16, 2010</span>
+        </div>
         
-        <h2 class="statement-title">I'M A TATTOO ARTIST,<br>NOT A RUG PULLER</h2>
+        <!-- Main Headline -->
+        <h1 class="text-7xl md:text-9xl font-black mb-6 leading-none">
+            <span class="block bg-gradient-to-r from-amber-300 via-orange-400 to-amber-300 bg-clip-text text-transparent">
+                THE FIRST
+            </span>
+            <span class="block bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent mt-2 rainbow-text">
+                DOG PHOTO
+            </span>
+        </h1>
         
-        <p class="statement-text">
-            My income comes from ink, not dumping on you. This is an experiment at the 
-            intersection of body art and internet culture. My leg becomes a living canvas 
-            of meme history. No promises except permanent tattoos.
+        <div class="flex items-center justify-center gap-3 mb-8">
+            <span class="text-3xl font-light text-gray-400">ON</span>
+            <span class="text-5xl font-black bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+                INSTAGRAM
+            </span>
+        </div>
+
+        <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-16 leading-relaxed">
+            Before influencers. Before filters. Before it was cool.<br />
+            <span class="text-purple-400 font-semibold">The original legend, now immortalized on Solana.</span>
         </p>
 
-        <div class="instagram-link">
-            <div class="link-line"></div>
-            <a href="https://instagram.com/dead.visionn" target="_blank" rel="noopener noreferrer" class="instagram-handle">
-                
+        <!-- The Legendary Photo -->
+        <div class="relative max-w-2xl mx-auto mb-16">
+            <!-- Glow effect behind image -->
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-3xl blur-3xl opacity-60 glow-effect transform scale-105"></div>
             
-            </a>
-            <div class="link-line reverse"></div>
+            <div class="relative bg-gradient-to-br from-gray-900 to-black rounded-3xl p-4 border-2 border-purple-500/30 shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
+                <!-- Instagram-style header -->
+                <div class="bg-black/50 backdrop-blur-sm rounded-2xl p-4 mb-3 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full p-0.5">
+                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center">
+                                <span class="text-xs font-bold">KS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-white">kevin</span>
+                                <svg class="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
+                                </svg>
+                            </div>
+                            <span class="text-xs text-gray-500">Instagram Co-founder</span>
+                        </div>
+                    </div>
+                    <i data-lucide="instagram" class="w-6 h-6 text-pink-400"></i>
+                </div>
+
+                <!-- The actual dog photo - REPLACE THIS IMAGE -->
+                <div class="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-900/30 to-purple-900/30">
+                    <img 
+                        src="
+
+-jpg”
+                        alt="First Instagram Dog - July 16, 2010"
+                        class="w-full h-auto"
+                        style="aspect-ratio: 1/1; object-fit: cover;"
+                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    />
+                    <!-- Fallback if image doesn't load -->
+                    <div class="hidden w-full aspect-square items-center justify-center bg-gradient-to-br from-blue-900/50 to-purple-900/50" style="display: flex;">
+                        <div class="text-center p-8">
+                            <i data-lucide="camera" class="w-20 h-20 text-purple-400 mx-auto mb-4 opacity-50"></i>
+                            <p class="text-2xl font-bold text-purple-300">🐕 The First Instagram Dog</p>
+                            <p class="text-sm text-gray-500 mt-2">Add your image as kevin-dog.jpg</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instagram-style engagement -->
+                <div class="bg-black/50 backdrop-blur-sm rounded-2xl p-4 mt-3">
+                    <div class="flex items-center gap-6 mb-3">
+                        <div class="flex items-center gap-2">
+                            <div class="w-7 h-7 bg-gradient-to-br from-red-500 to-pink-500 rounded-full flex items-center justify-center">
+                                <span class="text-xs">❤️</span>
+                            </div>
+                            <span class="font-bold text-sm">430,167 likes</span>
+                        </div>
+                        <span class="text-gray-500 text-sm">76.6K comments</span>
+                    </div>
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">
+                        📅 July 16, 2010 • The Beginning
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating badges -->
+            <div class="absolute -top-6 -left-6 bg-purple-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg rotate-[-12deg] border-2 border-purple-400">
+                #1 DOG 🐕
+            </div>
+            <div class="absolute -bottom-6 -right-6 bg-pink-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg rotate-[12deg] border-2 border-pink-400">
+                OG LEGEND ✨
+            </div>
+        </div>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
+            <button class="group relative px-10 py-5 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-full font-black text-xl overflow-hidden transform hover:scale-110 transition-all duration-300 shadow-2xl">
+                <div class="absolute inset-0 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <span class="relative z-10 flex items-center gap-2">
+                    BUY ON PUMP.FUN 🚀
+                </span>
+            </button>
+            
+            <button onclick="copyContract()" id="copyBtn" class="px-10 py-5 bg-white/5 backdrop-blur-sm rounded-full font-bold text-lg hover:bg-white/10 transition-all duration-300 border-2 border-purple-500/30 hover:border-purple-500 transform hover:scale-105">
+                📋 COPY CONTRACT
+            </button>
         </div>
     </div>
-</div>
+</section>
 
-<div class="footer">
-    <p class="footer-text">
-        DEGEN RESPONSIBLY • THIS IS NOT FINANCIAL ADVICE • MEME COINS ARE RISKY AF
-    </p>
-    <p class="footer-contract">
-        Contract Address: TBA • Launching on pump.fun
-    </p>
-</div>
+<!-- Stats Banner -->
+<section class="relative z-10 py-12 border-y border-purple-500/20 bg-purple-950/20 backdrop-blur-sm">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="text-center">
+                <div class="text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">
+                    #1
+                </div>
+                <div class="text-gray-400 text-sm uppercase tracking-wider">First Ever</div>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-black bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent mb-2">
+                    430K
+                </div>
+                <div class="text-gray-400 text-sm uppercase tracking-wider">Original Likes</div>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-black bg-gradient-to-r from-orange-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                    14+
+                </div>
+                <div class="text-gray-400 text-sm uppercase tracking-wider">Years Legacy</div>
+            </div>
+            <div class="text-center">
+                <div class="text-5xl font-black bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent mb-2">
+                    1B
+                </div>
+                <div class="text-gray-400 text-sm uppercase tracking-wider">Total Supply</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Story Section -->
+<section id="about" class="relative z-10 container mx-auto px-6 py-32">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl md:text-7xl font-black mb-6">
+                <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent">
+                    THE ORIGIN STORY
+                </span>
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-16">
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-300"></div>
+                <div class="relative bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-purple-500/30">
+                    <div class="text-6xl mb-4">📸</div>
+                    <h3 class="text-2xl font-bold mb-3 text-purple-300">July 16, 2010</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Kevin Systrom, Instagram's co-founder, posted the very first dog photo to the platform. This wasn't just a photo—it was the beginning of a cultural phenomenon that would define pet content on social media forever.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-300"></div>
+                <div class="relative bg-gradient-to-br from-gray-900 to-black p-8 rounded-2xl border border-pink-500/30">
+                    <div class="text-6xl mb-4">💎</div>
+                    <h3 class="text-2xl font-bold mb-3 text-pink-300">Historic Tokenization</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Now, we're immortalizing this legendary moment on the Solana blockchain via Pump.fun. This isn't just another meme coin—it's a piece of internet history that changed social media forever.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charity Mission -->
+        <div class="relative mb-8">
+            <div class="absolute -inset-1 bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30"></div>
+            <div class="relative bg-gradient-to-br from-green-950/50 to-blue-950/50 backdrop-blur-sm p-12 rounded-3xl border border-green-500/30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="text-6xl">🐕❤️</div>
+                    <h3 class="text-3xl font-black bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+                        GIVING BACK TO OUR FURRY FRIENDS
+                    </h3>
+                </div>
+                <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                    A portion of trading fees and creator rewards will be donated to <span class="text-green-400 font-bold">dog rescues and animal shelters</span>. The first dog on Instagram inspired millions—now we're helping dogs in need find their forever homes.
+                </p>
+                <div class="grid md:grid-cols-2 gap-4 mt-8">
+                    <div class="bg-black/30 rounded-xl p-4 border border-green-500/20">
+                        <div class="text-3xl font-bold text-green-400 mb-1">2%</div>
+                        <div class="text-sm text-gray-400">Of all trades donated monthly</div>
+                    </div>
+                    <div class="bg-black/30 rounded-xl p-4 border border-blue-500/20">
+                        <div class="text-3xl font-bold text-blue-400 mb-1">100%</div>
+                        <div class="text-sm text-gray-400">Transparent on-chain donations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kevin Tribute -->
+        <div class="relative">
+            <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-purple-600 rounded-3xl blur-2xl opacity-20"></div>
+            <div class="relative bg-gradient-to-br from-purple-950/30 to-pink-950/30 backdrop-blur-sm p-8 rounded-3xl border border-purple-500/20">
+                <div class="flex items-center gap-3 mb-4">
+                    <i data-lucide="sparkles" class="w-8 h-8 text-yellow-400"></i>
+                    <h3 class="text-2xl font-black bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                        RESERVED FOR KEVIN SYSTROM
+                    </h3>
+                </div>
+                <p class="text-lg text-gray-300 leading-relaxed">
+                    We've reserved <span class="text-purple-400 font-bold">5% of the total supply</span> for the man who started it all. Kevin, if you're reading this—thank you for capturing a moment that would inspire millions. These tokens will be donated to a dog charity of your choice if you wish.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Continue with more sections... (truncated for length) -->
+<!-- Add Tokenomics, Roadmap, Mission sections similarly -->
+
+<!-- Footer -->
+<footer class="relative z-10 border-t border-purple-500/20 py-12 bg-black/50 backdrop-blur-sm">
+    <div class="container mx-auto px-6 text-center">
+        <div class="flex items-center justify-center gap-3 mb-4">
+            <i data-lucide="instagram" class="w-6 h-6 text-purple-400"></i>
+            <span class="text-2xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                $FIRSTDOG
+            </span>
+        </div>
+        <p class="text-gray-500 mb-2">The First Instagram Dog • Tokenized Internet History</p>
+        <p class="text-sm text-gray-600">© 2024 • Built with ❤️ for the OG dog that started it all</p>
+    </div>
+</footer>
+
+<script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mouse gradient follower
+    document.addEventListener('mousemove', (e) => {
+        const gradient = document.getElementById('mouseGradient');
+        gradient.style.left = (e.clientX - 192) + 'px';
+        gradient.style.top = (e.clientY - 192) + 'px';
+    });
+
+    // Copy contract function
+    function copyContract() {
+        const contractAddress = "Coming Soon"; // Replace with actual contract
+        navigator.clipboard.writeText(contractAddress).then(() => {
+            const btn = document.getElementById('copyBtn');
+            btn.textContent = '✓ COPIED!';
+            setTimeout(() => {
+                btn.textContent = '📋 COPY CONTRACT';
+            }, 2000);
+        });
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+</script>
 ```
 
 </body>
